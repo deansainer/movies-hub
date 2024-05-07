@@ -2,12 +2,15 @@ import React, {FC, useState} from 'react'
 import axios from 'axios'
 import Movie from '../models/Movie'
 
-const MovieForm: FC = () => {
 
+interface MovieFormProps {
+    updateMoviesList: (moviesList: Movie[]) => void;
+}
+
+
+const MovieForm: FC<MovieFormProps> = ({updateMoviesList}) => {
 
     const [movieName, setMovieName] = useState<string>('')
-
-    const [moviesList, setMoviesList] = useState<Movie[]>([])
 
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setMovieName(e.target.value)
@@ -18,8 +21,7 @@ const MovieForm: FC = () => {
         if(movieName){
             const response = await axios.get<any>(`https://www.omdbapi.com/?s=${movieName}&apikey=57ef9345`)
             const searchArray = response.data.Search
-            setMoviesList(response.data.Search)
-            console.log(moviesList); 
+            updateMoviesList(searchArray)
         }
     }
 
