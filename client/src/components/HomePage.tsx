@@ -1,8 +1,19 @@
 import React, {FC} from 'react'
+import MovieForm from './MovieForm'
+import MoviesList from './MoviesList'
+import Movie from '../models/Movie'
 
-const HomePage: FC = () => {
+interface HomePageProps{
+  updateMoviesList: (moviesList: Movie[]) => void;
+  moviesList: Movie[];
+}
+
+const HomePage: FC<HomePageProps> = ({updateMoviesList, moviesList}) => {
   return (
-    <div>HomePage</div>
+    <div className='home_page'>
+      <MovieForm updateMoviesList={updateMoviesList} />
+      <MoviesList moviesList={moviesList}/>
+    </div>
   )
 }
 

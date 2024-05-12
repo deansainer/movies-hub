@@ -22,6 +22,7 @@ const MovieForm: FC<MovieFormProps> = ({updateMoviesList}) => {
             const response = await axios.get<any>(`https://www.omdbapi.com/?s=${movieName}&apikey=57ef9345`)
             const searchArray = response.data.Search
             updateMoviesList(searchArray)
+            setMovieName('')
         }
     }
 
