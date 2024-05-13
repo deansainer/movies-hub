@@ -22,12 +22,19 @@ function App() {
     }
   }
 
+  const [savedList, setSavedList] = useState<Movie[]>([])
+
+  function addToSaved(movie: Movie){
+    setSavedList([...savedList, movie])
+    console.log(savedList);
+  }
+
   return (
     <div className="App">
       <Navbar/>
       <Routes>
-        <Route path='/' element={<HomePage updateMoviesList={updateMoviesList} moviesList={moviesList} />}/>
-        <Route path='/saved' element={<Saved/>}/>
+        <Route path='/' element={<HomePage updateMoviesList={updateMoviesList} moviesList={moviesList} addToSaved={addToSaved} />}/>
+        <Route path='/saved' element={<Saved savedList={savedList}/>}/>
       </Routes>
     </div>
   );

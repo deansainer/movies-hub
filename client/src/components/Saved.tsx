@@ -1,8 +1,17 @@
 import React, {FC} from 'react'
+import Movie from '../models/Movie';
 
-const Saved: FC = () => {
+interface SavedProps{
+  savedList: Movie[];
+}
+
+const Saved: FC<SavedProps> = ({savedList}) => {
   return (
-    <div>Saved</div>
+    <div>
+      {savedList.map((savedMovie) => (
+        <img src={savedMovie.Poster}/>
+      ))}
+    </div>
   )
 }
 

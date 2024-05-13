@@ -3,16 +3,17 @@ import Movie from '../models/Movie'
 import MovieCard from './MovieCard';
 
 interface moviesList{
-    moviesList: Movie[];
+    moviesList: Movie[],
+    addToSaved: (movie: Movie) => void;
 }
 
-const MoviesList: FC<moviesList> = ({moviesList}) => {
+const MoviesList: FC<moviesList> = ({moviesList, addToSaved}) => {
   return (
     <div>
         <div className='cards'>
           <div className='card_container'>
             {moviesList.map((movie) => (
-              <MovieCard movie={movie}/>
+              <MovieCard movie={movie} addToSaved={addToSaved}/>
             ))}
           </div>
         </div>

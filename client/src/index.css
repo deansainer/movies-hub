@@ -71,6 +71,10 @@
   position: relative; /* Додаємо position: relative, щоб встановити контекст для абсолютного розміщення save_icon */
 }
 
+.movie_card:hover{
+  transform: scale(1.1);
+}
+
 .cards{
   width: 1315px;
   margin-left: 310px;
@@ -88,6 +92,9 @@
   top: 5px;
   right: 5px;
   position: absolute;
+}
+.save_icon:hover {
+  transform: scale(1.1);
 }
 
 .home_page{
