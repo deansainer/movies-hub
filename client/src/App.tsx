@@ -24,9 +24,13 @@ function App() {
 
   const [savedList, setSavedList] = useState<Movie[]>([])
 
-  function addToSaved(movie: Movie){
-    setSavedList([...savedList, movie])
-    console.log(savedList);
+  function addToSaved(movie: Movie) {
+    if (savedList && savedList.find((savedMovie) => savedMovie.imdbID === movie.imdbID)) {
+      console.log('dublicated!!!');
+    } else {
+      setSavedList([...savedList, movie]);
+      console.log(savedList);
+    }
   }
 
   return (

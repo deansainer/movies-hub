@@ -13,7 +13,7 @@ const MoviesList: FC<moviesList> = ({moviesList, addToSaved}) => {
         <div className='cards'>
           <div className='card_container'>
             {moviesList.map((movie) => (
-              <MovieCard movie={movie} addToSaved={addToSaved}/>
+              movie.Poster === 'N/A' ? null : <MovieCard movie={movie} addToSaved={addToSaved}/>
             ))}
           </div>
         </div>

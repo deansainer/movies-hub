@@ -1,5 +1,7 @@
 import React, {FC} from 'react'
 import Movie from '../models/Movie';
+import SavedMovieCard from './SavedMovieCard';
+
 
 interface SavedProps{
   savedList: Movie[];
@@ -8,9 +10,13 @@ interface SavedProps{
 const Saved: FC<SavedProps> = ({savedList}) => {
   return (
     <div>
-      {savedList.map((savedMovie) => (
-        <img src={savedMovie.Poster}/>
-      ))}
+      <div className='cards'>
+        <div className='card_container'>
+          {savedList.map((savedMovie: Movie) => (
+            <SavedMovieCard savedMovie={savedMovie}/>
+          ))}
+      </div>
+      </div>
     </div>
   )
 }
