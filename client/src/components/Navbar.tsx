@@ -7,10 +7,10 @@ const Navbar: FC = () => {
     
         <Link className={'home_nav_link'} to={'/'}>Home Page</Link>
         <Link className={'nav_link'} to={'/saved'}>Saved</Link>
+        <Link className={'nav_link'} to={'/history'}>History</Link>
         
-      <div className='signout_div'>
-        <span className='sign_out_nav'>Sign out</span>
-      </div>
+        
+        <span className='nav_signout'>Sign out</span>
   </div>
   )
 }
