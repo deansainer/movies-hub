@@ -5,6 +5,7 @@ type HistoryMovie = {
     Type: string,
     Poster: string,
     rating: number,
+    completedAt: Date,
 }
 
 export default HistoryMovie

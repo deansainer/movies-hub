@@ -18,7 +18,7 @@ const Modal: FC<ModalProps> = ({ changeModalState, savedMovie, deleteFromSaved, 
   };
 
   function modalSubmit(){
-    const completedMovie = {...savedMovie, rating}
+    const completedMovie = {...savedMovie, rating, completedAt: new Date()}
     changeModalState()
     addToHistory(completedMovie)
     deleteFromSaved(savedMovie.imdbID)
