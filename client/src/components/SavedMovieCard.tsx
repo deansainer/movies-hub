@@ -22,7 +22,7 @@ const SavedMovieCard: FC<SavedMovieCardProps> = ({savedMovie, deleteFromSaved, a
     <div className={`saved_movie_card ${isModal ? 'modal_open' : ''}`}>
         <img onClick={() => deleteFromSaved(savedMovie.imdbID)} className='delete_button' src='https://cdn-icons-png.flaticon.com/128/753/753345.png'/> 
         <img onClick={changeModalState} className='complete_button' src='https://cdn-icons-png.flaticon.com/128/1828/1828640.png'/>
-        <img onClick={() => setIsModal(!isModal)} className='saved_movie_poster' src={savedMovie.Poster}/>
+        <img className='saved_movie_poster' src={savedMovie.Poster}/>
         <div className='saved_movie_title'><span>{savedMovie.Title} <span style={{ fontSize: '12px', color: 'grey' }}>{savedMovie.Year}</span></span></div>
       </div>
       </>
