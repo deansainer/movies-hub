@@ -11,7 +11,8 @@ interface SavedMovieCardProps{
 
 const SavedMovieCard: FC<SavedMovieCardProps> = ({savedMovie, deleteFromSaved, addToHistory}) => {
   const [isModal, setIsModal] = useState(false)
-
+  console.log('Saved movie:', savedMovie);
+  
   function changeModalState(){
     setIsModal(!isModal)
   }

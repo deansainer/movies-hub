@@ -4,6 +4,7 @@ type Movie = {
     imdbID: string,
     Type: string,
     Poster: string,
+    date: Date
 }
 
 

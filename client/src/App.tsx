@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useState, useEffect} from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import HomePage from './components/HomePage'
@@ -6,7 +6,7 @@ import Saved from './components/Saved';
 import Movie from './models/Movie';
 import HistoryMovie from './models/HistoryMovie';
 import HistoryPage from './components/HistoryPage';
-
+import axios from 'axios';
 function App() {
 
   const [moviesList, setMoviesList] = useState<Movie[]>([])
@@ -23,12 +23,31 @@ function App() {
 
   const [savedList, setSavedList] = useState<Movie[]>([])
 
-  function addToSaved(movie: Movie) {
+  async function getSavedList(){
+    const response = await axios.get('http://localhost:3001/movies/saved')
+    setSavedList(response.data)
+    console.log(savedList);
+    
+  }
+
+  useEffect(() => {
+    getSavedList()
+  }, [])
+
+
+  async function addToSaved(movie: Movie) {
     if (savedList && savedList.find((savedMovie) => savedMovie.imdbID === movie.imdbID)) {
       console.log('dublicated!!!');
     } else {
-      setSavedList([...savedList, movie]);
-      console.log(savedList);
+      const response = await axios.post('http://localhost:3001/movies/post', {
+        Title: movie.Title,
+        Year: movie.Year,
+        imdbID: movie.imdbID,
+        Type: movie.Type,
+        Poster: movie.Poster
+      })
+      getSavedList()
+      console.log('Movie saved succesfully');
     }
   }
 
