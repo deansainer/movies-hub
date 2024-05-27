@@ -1,11 +1,4 @@
-type Movie = {
-    Title: string,
-    Year: string,
-    imdbID: string,
-    Type: string,
-    Poster: string,
-    date: Date
-}
+type Movie = any;
 
 
 export default Movie

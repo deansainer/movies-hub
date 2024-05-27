@@ -11,7 +11,6 @@ interface SavedProps{
 }
 
 const Saved: FC<SavedProps> = ({savedList, deleteFromSaved, addToHistory}) => {
-  console.log('Saved items:', savedList);
 
   return (
     <>

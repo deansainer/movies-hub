@@ -10,7 +10,7 @@ CREATE TABLE Saved_Movies (
 CREATE TABLE HistoryMovies (
     title VARCHAR(255) NOT NULL,
     year CHAR(4) NOT NULL,
-    imdbID VARCHAR(55) PRIMARY KEY,
+    imdbid VARCHAR(55) PRIMARY KEY,
     type VARCHAR(50),
     poster VARCHAR(255),
     rating INTEGER,

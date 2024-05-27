@@ -22,6 +22,7 @@ const Modal: FC<ModalProps> = ({ changeModalState, savedMovie, deleteFromSaved, 
     changeModalState()
     addToHistory(completedMovie)
     deleteFromSaved(savedMovie.imdbID)
+    console.log(completedMovie);
   }
 
   return (

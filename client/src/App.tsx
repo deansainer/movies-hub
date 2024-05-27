@@ -21,13 +21,13 @@ function App() {
     }
   }
 
+
+
   const [savedList, setSavedList] = useState<Movie[]>([])
 
   async function getSavedList(){
     const response = await axios.get('http://localhost:3001/movies/saved')
-    setSavedList(response.data)
-    console.log(savedList);
-    
+    setSavedList(response.data)    
   }
 
   useEffect(() => {
@@ -53,17 +53,31 @@ function App() {
 
   const [historyList, setHistoryList] = useState<HistoryMovie[]>([])
 
-  function deleteFromSaved(movieId: string){
-    const newSavedList = savedList.filter((savedMovie) => savedMovie.imdbID !== movieId)
-    setSavedList(newSavedList)
+  async function deleteFromSaved(movieId: string){
+    if(movieId){
+      const newSavedList = savedList.filter((savedMovie) => savedMovie.imdbid !== movieId)
+      setSavedList(newSavedList)
+      const response = await axios.delete(`http://localhost:3001/movies/saved/delete/${movieId}`)
+      console.log('item deleted');
+    } else {
+      console.log('No movie id');
+      
+    }
   }
 
-  function addToHistory(movie: HistoryMovie){
-    if(historyList.find((historyMovie) => historyMovie.imdbID === movie.imdbID)){
+  async function addToHistory(movie: HistoryMovie){
+    if(historyList.find((historyMovie) => historyMovie.imdbid === movie.imdbid)){
       console.log('dublicated history movie!!');
     } else {
+      const response = await axios.post('http://localhost:3001/movies/addToHistory', {
+        Title: movie.title,
+        Year: movie.year,
+        imdbID: movie.imdbid,
+        Type: movie.type,
+        Poster: movie.poster,
+        rating: movie.rating
+    })
       setHistoryList([...historyList, movie])
-      console.log(historyList);
     }
   }
 

@@ -29,11 +29,11 @@ const HistoryPage: FC<HistoryPageProps> = ({historyList}) => {
      {historyList.map((movie, index) => (
        <tr>
        <th scope="row">{index+1}</th>
-       <td><a href={movie.Poster}>{movie.Title}</a></td>
+       <td><a href={movie.poster}>{movie.title}</a></td>
        <td>{movie.rating}</td>
-       <td>{movie.Year}</td>
-       <td>{movie.imdbID}</td>
-       <td>{movie.Type.charAt(0).toUpperCase() + movie.Type.slice(1)}</td>
+       <td>{movie.year}</td>
+       <td>{movie.imdbid}</td>
+       <td>{movie.type.charAt(0).toUpperCase() + movie.type.slice(1)}</td>
        <td>{String(movie.completedAt.toLocaleDateString("en-US"))}</td>
        </tr>
        ))}

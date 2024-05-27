@@ -1,11 +1,3 @@
-type HistoryMovie = {
-    Title: string,
-    Year: string,
-    imdbID: string,
-    Type: string,
-    Poster: string,
-    rating: number,
-    completedAt: Date,
-}
+type HistoryMovie = any;
 
 export default HistoryMovie
