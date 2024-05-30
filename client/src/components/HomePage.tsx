@@ -13,7 +13,6 @@ const HomePage: FC<HomePageProps> = ({updateMoviesList, moviesList, addToSaved})
 
   return (
     <div className='home_page'>
-      <MovieForm updateMoviesList={updateMoviesList} />
       <MoviesList moviesList={moviesList} addToSaved={addToSaved} />
     </div>
   )

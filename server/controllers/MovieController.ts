@@ -13,6 +13,15 @@ class MovieController{
 
     }
 
+    async getHistoryMovies(req: Request, res: Response){
+        try {
+            const historyMovies = await pool.query('select * from history_movies')
+            res.json(historyMovies.rows) 
+        } catch (error) {
+            res.json(error)
+        }
+    }
+
     async deleteFromSaved(req: Request, res: Response){
         try {
             const {imdbid} = req.params;
@@ -21,7 +30,16 @@ class MovieController{
         } catch (error) {
             res.json(error)
         }
+    }
 
+    async deleteFromHistory(req: Request, res: Response){
+        try {
+            const {imdbid} = req.params;
+            const deletedItem = await pool.query("delete from history_movies where imdbid=$1", [imdbid])
+            res.json(deletedItem.rows[0])    
+        } catch (error) {
+            res.json(error)
+        }
     }
 
     async addToSaved(req: Request, res: Response){

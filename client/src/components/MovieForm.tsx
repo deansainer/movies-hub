@@ -1,6 +1,7 @@
 import React, {FC, useState} from 'react'
 import axios from 'axios'
 import Movie from '../models/Movie'
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 
 interface MovieFormProps {
@@ -28,10 +29,10 @@ const MovieForm: FC<MovieFormProps> = ({updateMoviesList}) => {
 
   return (
     <form onSubmit={handleSubmit}>
-        <div className='movie_container'>
+        <div className='movie_form_container'>
             <div className='movie_form'>
-                <input name='title' type='text' placeholder='Interstellar' value={movieName} onChange={handleOnChange}/>
-                <button type='submit'>Submit</button>
+                <input name='title' type='text' placeholder='Inception' value={movieName} onChange={handleOnChange}/>
+                <button type='submit'>Search</button>
             </div>
         </div>
     </form>

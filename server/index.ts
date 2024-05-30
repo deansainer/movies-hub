@@ -9,7 +9,7 @@ app.use(cors());
 
 app.use(express.json())
 
-app.use('/movies', MovieRouter)
+app.use('/api', MovieRouter)
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Hello YOOO')

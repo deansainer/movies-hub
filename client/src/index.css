@@ -3,6 +3,7 @@ body {
   padding: 0;
 }
 
+
 .movie_nav_link {
   text-decoration: none;
   color: white;
@@ -41,14 +42,16 @@ body {
 
 
 
-.movie_container{
+.movie_form_container{
   display: flex;
   justify-content: center;
+  margin-left: 360px;
 }
 
 .movie_form input {
+  padding-left: 10px;
   width: 300px;
-  height: 23px;
+  height: 27px;
   outline: none;
   margin-left: 50px;
   border-radius: 5px;
@@ -65,7 +68,7 @@ body {
 }
 
 .movie_form button:hover{
-  background-color: rgb(29, 107, 138);
+  background-color: rgb(48, 47, 47);
   color: white
 }
 
@@ -283,3 +286,9 @@ body {
   font-size: 40px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: rgb(94, 94, 94);}
+
+  .delete_from_history_icon{
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+  }
