@@ -287,6 +287,10 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: rgb(94, 94, 94);}
 
+  .history_label{
+    margin-top: 20px;
+  }
+
   .delete_from_history_icon{
     cursor: pointer;
     height: 20px;

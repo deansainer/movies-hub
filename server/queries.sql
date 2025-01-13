@@ -7,12 +7,12 @@ CREATE TABLE Saved_Movies (
     date DATE
 );
 
-CREATE TABLE HistoryMovies (
+CREATE TABLE History_Movies (
     title VARCHAR(255) NOT NULL,
     year CHAR(4) NOT NULL,
     imdbid VARCHAR(55) PRIMARY KEY,
     type VARCHAR(50),
     poster VARCHAR(255),
     rating INTEGER,
-    completedAt DATETIME
+    completedAt DATE
 );
