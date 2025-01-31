@@ -1,7 +1,6 @@
 import React, {FC, useState} from 'react'
 import axios from 'axios'
 import Movie from '../models/Movie'
-import { FaMagnifyingGlass } from "react-icons/fa6";
 
 
 interface MovieFormProps {

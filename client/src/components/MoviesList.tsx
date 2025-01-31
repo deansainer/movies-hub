@@ -1,24 +1,24 @@
-import React, {FC} from 'react'
-import Movie from '../models/Movie'
+import React, { FC } from 'react';
+import Movie from '../models/Movie';
 import MovieCard from './MovieCard';
 
-interface moviesList{
-    moviesList: Movie[],
-    addToSaved: (movie: Movie) => void;
+interface MoviesListProps {
+  moviesList: Movie[];
+  addToSaved: (movie: Movie) => void;
 }
 
-const MoviesList: FC<moviesList> = ({moviesList, addToSaved}) => {
+const MoviesList: FC<MoviesListProps> = ({ moviesList, addToSaved }) => {
   return (
-    <div>
-        <div className='cards'>
-          <div className='card_container'>
-            {moviesList.map((movie) => (
-              movie.Poster === 'N/A' ? null : <MovieCard movie={movie} addToSaved={addToSaved}/>
-            ))}
-          </div>
-        </div>
+    <div className="cards">
+      <div className="card_container">
+        {moviesList.map((movie) =>
+          !movie.Poster || movie.Poster === 'N/A' ? null : (
+            <MovieCard key={movie.imdbID} movie={movie} addToSaved={addToSaved} />
+          )
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default MoviesList
+export default MoviesList;
